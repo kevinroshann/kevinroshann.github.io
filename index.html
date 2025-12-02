@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        /* --- CSS Variables & Reset --- */
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent: #64ffda;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 60px 0; }
+
+        h1, h2, h3 { color: var(--text-main); font-weight: 700; }
+        h1 { font-size: 2.5rem; letter-spacing: -1px; margin-bottom: 0.5rem; }
+        h2 { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--accent); display: flex; align-items: center; }
+        h2::after { content: ""; display: block; height: 1px; background: #333; flex: 1; margin-left: 20px; }
+        
+        p { margin-bottom: 1rem; color: var(--text-muted); }
+        a { text-decoration: none; color: inherit; transition: 0.2s; }
+
+        /* --- Header --- */
+        header { margin-bottom: 60px; animation: fadeIn 0.8s ease-in; }
+        .tagline { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 20px; }
+        .social-links { display: flex; gap: 20px; margin-top: 20px; }
+        .social-links a {
+            display: flex; align-items: center; gap: 8px; color: var(--text-main);
+            font-size: 0.9rem; padding: 8px 16px; background: var(--card-bg);
+            border-radius: 50px; border: 1px solid transparent;
+        }
+        .social-links a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+        .icon { width: 18px; height: 18px; fill: currentColor; }
+
+        /* --- Sections --- */
+        section { margin-bottom: 80px; animation: slideUp 0.8s ease-out; }
+
+        /* Experience */
+        .job-item { margin-bottom: 30px; padding-left: 20px; border-left: 2px solid #333; transition: border-color 0.3s; }
+        .job-item:hover { border-left-color: var(--accent); }
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 5px; }
+        .job-title { font-weight: 600; font-size: 1.1rem; color: var(--text-main); }
+        .company { color: var(--accent); }
+        .date { font-size: 0.85rem; font-family: monospace; color: var(--text-muted); }
+
+        /* Projects (List View) */
+        .project-list { display: flex; flex-direction: column; }
+        .project-item { padding: 25px 0; border-bottom: 1px solid #333; transition: transform 0.2s; display: block; }
+        .project-item:last-child { border-bottom: none; }
+        .project-item:hover { transform: translateX(10px); }
+        .project-title {
+            font-size: 1.2rem; font-weight: 600; margin-bottom: 8px;
+            display: flex; justify-content: space-between; align-items: center;
+            color: var(--text-main);
+        }
+        .project-item:hover .project-title { color: var(--accent); }
+        .tech-stack { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+        .tech-tag {
+            font-size: 0.75rem; font-family: monospace; color: var(--text-muted);
+            background: transparent; padding: 0;
+        }
+        .tech-tag::before { content: "#"; color: var(--accent); margin-right: 2px; }
+
+        footer { text-align: center; padding-bottom: 40px; font-size: 0.85rem; color: #555; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .container { padding: 40px 0; }
+            .social-links { flex-wrap: wrap; }
+            .job-header { flex-direction: column; gap: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- HEADER -->
+    <header id="header-section">
+        <!-- Content injected by JS -->
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about-section">
+        <h2>About Me</h2>
+        <div id="about-content">
+            <!-- Content injected by JS -->
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section>
+        <h2>Where I've Worked</h2>
+        <div id="experience-list">
+            <!-- Content injected by JS -->
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section>
+        <h2>What I've Built</h2>
+        <div id="project-list" class="project-list">
+             <!-- Content injected by JS -->
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p id="footer-text"></p>
+    </footer>
+
+</div>
+
+<script src="data.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Set Meta Title
+        document.title = data.meta.title;
+
+        // 2. Render Header
+        const headerHTML = `
+            <h1>${data.header.name}</h1>
+            <p class="tagline">${data.header.tagline}</p>
+            <p style="max-width: 500px;">${data.header.intro}</p>
+            <div class="social-links">
+                ${data.header.social.map(s => `
+                    <a href="${s.link}" target="_blank">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="${s.iconPath}"/></svg>
+                        ${s.name}
+                    </a>
+                `).join('')}
+            </div>
+        `;
+        document.getElementById('header-section').innerHTML = headerHTML;
+
+        // 3. Render About
+        const aboutHTML = data.about.map(para => `<p>${para}</p>`).join('');
+        document.getElementById('about-content').innerHTML = aboutHTML;
+
+        // 4. Render Experience
+        const experienceHTML = data.experience.map(job => `
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-title">${job.title} <span class="company">@ ${job.company}</span></span>
+                    <span class="date">${job.date}</span>
+                </div>
+                <p>${job.description}</p>
+            </div>
+        `).join('');
+        document.getElementById('experience-list').innerHTML = experienceHTML;
+
+        // 5. Render Projects
+        const projectsHTML = data.projects.map(proj => `
+            <a href="${proj.link}" class="project-item">
+                <div class="project-title">
+                    <span>${proj.title}</span>
+                    <svg class="icon" style="transform: rotate(-45deg)" viewBox="0 0 24 24"><path d="M14 13v6h-4v-6h-5l7-7 7 7h-5z"/></svg>
+                </div>
+                <p>${proj.description}</p>
+                <div class="tech-stack">
+                    ${proj.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+                </div>
+            </a>
+        `).join('');
+        document.getElementById('project-list').innerHTML = projectsHTML;
+
+        // 6. Render Footer
+        document.getElementById('footer-text').textContent = data.footer;
+    });
+</script>
+
+</body>
+</html>
