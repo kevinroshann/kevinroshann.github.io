@@ -1,11 +1,11 @@
 
 const data = {
     meta: {
-        title: "Kevin | Portfolio"
+        title: "Kevin"
     },
     header: {
         name: "Kevin Roshan N",
-        tagline: "SoC",
+        tagline: "FPGA Engineer",
         // intro: "I build accessible, pixel-perfect, and performant web experiences. Currently focused on simplifying complex interfaces.",
         social: [
             {
@@ -20,54 +20,62 @@ const data = {
             },
             {
                 name: "Email",
-                link: "mailto:kevinroshann@gmail.com",
+                link: "mailto:kevinroshan17@gmail.com",
                 iconPath: "M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-11.174l4.623 5.462zm12.008 9.071h-13.308l5.31-6.559 1.344 1.588 1.344-1.588 5.31 6.559zm-12.008-9.071l-4.623-5.462v11.174l4.623-5.712zm-4.271-6.929h20.575l-10.288 11.188-10.287-11.188z"
             }
         ]
     },
-//     about: [
-//         "Hello! I'm Alex, a software engineer based in San Francisco. I enjoy creating things that live on the internet. My interest in web development started back in 2018 when I decided to try editing custom Tumblr themes — turns out hacking together HTML & CSS is fun!",
-//         "Fast-forward to today, and I've had the privilege of working at an advertising agency, a start-up, and a huge corporation. My main focus these days is building accessible, inclusive products and digital experiences."
-//     ],
-//     experience: [
-//         {
-//             title: "Senior Frontend Developer",
-//             company: "TechFlow",
-//             date: "2022 - Present",
-//             description: "Spearheading the migration of the legacy dashboard to a modern tech stack. Improved load times by 40% and mentored two junior developers."
-//         },
-//         {
-//             title: "Web Developer",
-//             company: "Creative Agency",
-//             date: "2020 - 2022",
-//             description: "Developed high-fidelity landing pages for over 15 clients including top-tier tech brands. Collaborated closely with designers to ensure pixel-perfect implementation."
-//         },
-//         {
-//             title: "Junior Dev",
-//             company: "StartUp Inc",
-//             date: "2018 - 2020",
-//             description: "Built and maintained the company's main e-commerce platform. Implemented Stripe payment gateway and fixed critical UI bugs."
-//         }
-//     ],
-//     projects: [
-//         {
-//             title: "Task Manager App",
-//             description: "A minimalist dashboard for managing daily tasks and team workflows.",
-//             link: "#",
-//             tech: ["HTML", "CSS", "JavaScript"]
-//         },
-//         {
-//             title: "Weather Data Viz",
-//             description: "Real-time weather visualization tool using public APIs to map climate data.",
-//             link: "#",
-//             tech: ["API", "D3.js"]
-//         },
-//         {
-//             title: "Portfolio v1",
-//             description: "My first portfolio site built with pure CSS grid and flexbox.",
-//             link: "#",
-//             tech: ["HTML5", "CSS3"]
-//         }
-//     ],
+    about: [
+        // "Hello! I'm Alex, a software engineer based in San Francisco. I enjoy creating things that live on the internet. My interest in web development started back in 2018 when I decided to try editing custom Tumblr themes — turns out hacking together HTML & CSS is fun!",
+        // "Fast-forward to today, and I've had the privilege of working at an advertising agency, a start-up, and a huge corporation. My main focus these days is building accessible, inclusive products and digital experiences."
+        "Hello I'm Kevin Roshan. I am pursuing my BTECH in Electronics and Communication Engineering. Expected to pass out in 2027. I am interested in Computer Architectures, Digital Signal Processing and FPGAs. My focus is understanding and create projects and develop skills in those areas."
+    ],
+    experience: [
+        {
+            title: "Matlab Intern",
+            company: "CUSAT",
+            date: "2025 JUNE",
+            description: "Explored and studies various areas of matlab and understanding about simulink and matlab interfaces and all. Completed 30 hr course on different aspects of Matlab"
+        },
+        {
+            title: "Verilog Intern",
+            company: "Petaera Technology",
+            date: "2025 JULY",
+            description: "Worked on Verilog projects learnt about cocotb verification. Created a 19 bit processor and verified it using cocotb during the course of internship"
+        },
+        {
+            title: "FPGA/RF intern",
+            company: "Asnaviram Networks",
+            date: "2026 May - present",
+            description: "FPGA based signal processing system design and development"
+
+        }
+    ],
+    projects: [
+        {
+            title: "UART Streamed FIR Filter on IceBreaker FPGA",
+            description: "Implemented a streamed FIR low-pass filter with UART communication, verified both through Cocotb testbenches and on the IceBreaker FPGA. A noisy signal was transmitted via UART using Python and filtered in hardware.",
+            link: "https://github.com/kevinroshann/uart_streamed_fir_filter",
+            tech: ["Verilog", "Cocotb", "Python", "UART"]
+        },
+        {
+            title: "DTMF Keyboard",
+            description: "Designed a DTMF keyboard system by first developing and validating the implementation in MATLAB, then implementing and testing it on the IceBreaker FPGA board.",
+            link: "https://github.com/kevinroshann/dtmf",
+            tech: ["Verilog", "MATLAB", "FPGA"]
+        },
+        {
+            title: "Maze Solving Bot using FPGA",
+            description: "Developed an FPGA-based maze-solving robot as part of the IIT Bombay e-Yantra competition and implemented the design on a Cyclone IV FPGA.",
+            link: "#",
+            tech: ["Verilog", "Cyclone IV FPGA", "e-Yantra"]
+        },
+        {
+            title: "32-Bit RISC-V Processor",
+            description: "Implemented a multicycle, non-pipelined 32-bit RISC-V processor in Verilog. Currently extending the processor with memory-mapped peripherals.",
+            link: "https://github.com/kevinroshann/RISCV",
+            tech: ["Verilog", "RISC-V", "Computer Architecture"]
+        }
+    ],
 //     footer: "Designed & Built by Kevin."
 };

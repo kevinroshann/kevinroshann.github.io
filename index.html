@@ -21,89 +21,84 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             font-family: var(--font-main);
-            line-height: 1.6;
+            line-height: 1.5;
             padding: 0 20px;
         }
 
-        .container { max-width: 800px; margin: 0 auto; padding: 60px 0; }
+        .container { max-width: 800px; margin: 0 auto; padding: 24px 0; }
 
         h1, h2, h3 { color: var(--text-main); font-weight: 700; }
-        h1 { font-size: 2.5rem; letter-spacing: -1px; margin-bottom: 0.5rem; }
-        h2 { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--accent); display: flex; align-items: center; }
-        h2::after { content: ""; display: block; height: 1px; background: #333; flex: 1; margin-left: 20px; }
-        
-        p { margin-bottom: 1rem; color: var(--text-muted); }
+        h1 { font-size: 2rem; letter-spacing: -0.5px; margin-bottom: 0.25rem; }
+        h2 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--accent); display: flex; align-items: center; }
+        h2::after { content: ""; display: block; height: 1px; background: #333; flex: 1; margin-left: 15px; }
+
+        p { margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.95rem; }
         a { text-decoration: none; color: inherit; transition: 0.2s; }
 
         /* --- Header --- */
-        header { margin-bottom: 60px; animation: fadeIn 0.8s ease-in; }
-        .tagline { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 20px; }
-        .social-links { display: flex; gap: 20px; margin-top: 20px; }
+        header { margin-bottom: 28px; animation: fadeIn 0.8s ease-in; }
+        .header-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
+        .tagline { font-size: 1rem; color: var(--text-muted); margin-bottom: 8px; }
+        .social-links { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+        /* Unified link styling for all header pills */
         .social-links a {
-            display: flex; align-items: center; gap: 8px; color: var(--text-main);
-            font-size: 0.9rem; padding: 8px 16px; background: var(--card-bg);
+            display: inline-flex; align-items: center; gap: 6px; color: var(--text-main);
+            font-size: 0.85rem; padding: 4px 12px; background: var(--card-bg);
             border-radius: 50px; border: 1px solid transparent;
         }
         .social-links a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-        .icon { width: 18px; height: 18px; fill: currentColor; }
+
+        .icon { width: 16px; height: 16px; fill: currentColor; }
 
         /* --- Sections --- */
-        section { margin-bottom: 80px; animation: slideUp 0.8s ease-out; }
+        section { margin-bottom: 32px; animation: slideUp 0.8s ease-out; }
 
         /* Experience */
-        .job-item { margin-bottom: 30px; padding-left: 20px; border-left: 2px solid #333; transition: border-color 0.3s; }
+        .job-item { margin-bottom: 20px; padding-left: 16px; border-left: 2px solid #333; transition: border-color 0.3s; }
         .job-item:hover { border-left-color: var(--accent); }
-        .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 5px; }
-        .job-title { font-weight: 600; font-size: 1.1rem; color: var(--text-main); }
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 4px; }
+        .job-title { font-weight: 600; font-size: 1rem; color: var(--text-main); }
         .company { color: var(--accent); }
-        .date { font-size: 0.85rem; font-family: monospace; color: var(--text-muted); }
+        .date { font-size: 0.8rem; font-family: monospace; color: var(--text-muted); }
 
         /* Projects (List View) */
         .project-list { display: flex; flex-direction: column; }
-        .project-item { padding: 25px 0; border-bottom: 1px solid #333; transition: transform 0.2s; display: block; }
+        .project-item { padding: 16px 0; border-bottom: 1px solid #333; transition: transform 0.2s; display: block; }
         .project-item:last-child { border-bottom: none; }
-        .project-item:hover { transform: translateX(10px); }
+        .project-item:hover { transform: translateX(8px); }
         .project-title {
-            font-size: 1.2rem; font-weight: 600; margin-bottom: 8px;
+            font-size: 1.1rem; font-weight: 600; margin-bottom: 4px;
             display: flex; justify-content: space-between; align-items: center;
             color: var(--text-main);
         }
         .project-item:hover .project-title { color: var(--accent); }
-        .tech-stack { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+        .tech-stack { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; }
         .tech-tag {
             font-size: 0.75rem; font-family: monospace; color: var(--text-muted);
             background: transparent; padding: 0;
         }
         .tech-tag::before { content: "#"; color: var(--accent); margin-right: 2px; }
 
-        footer { text-align: center; padding-bottom: 40px; font-size: 0.85rem; color: #555; }
+        footer { text-align: center; padding-bottom: 20px; font-size: 0.8rem; color: #555; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .container { padding: 40px 0; }
-            .social-links { flex-wrap: wrap; }
-            .job-header { flex-direction: column; gap: 5px; }
+            h1 { font-size: 1.75rem; }
+            .container { padding: 16px 0; }
+            .job-header { flex-direction: column; gap: 2px; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    
+
     <!-- HEADER -->
     <header id="header-section">
         <!-- Content injected by JS -->
     </header>
-
-    <!-- ABOUT -->
-    <section id="about-section">
-        <h2>About Me</h2>
-        <div id="about-content">
-            <!-- Content injected by JS -->
-        </div>
-    </section>
 
     <!-- EXPERIENCE -->
     <section>
@@ -134,27 +129,42 @@
         // 1. Set Meta Title
         document.title = data.meta.title;
 
-        // 2. Render Header
+        // 2. Compact Render Header with Resume & Filtered Social Links
+        const aboutText = data.about ? data.about.join(' ') : data.header.intro;
+        const resumeUrl = "https://drive.google.com/file/d/1v4Q-NYCIqYw6gUA4kht9hPA4Rt8yqezb/view?usp=drive_link";
+        const emailAddress = "mailto:kevinroshan17@gmail.com";
+
+        // Filter out any existing 'Email' or 'Mail' entries from data.header.social so there are no duplicates on the right side
+        const filteredSocials = data.header.social.filter(s =>
+            !['email', 'mail'].includes(s.name.toLowerCase())
+        );
+
         const headerHTML = `
-            <h1>${data.header.name}</h1>
-            <p class="tagline">${data.header.tagline}</p>
-            <p style="max-width: 500px;">${data.header.intro}</p>
-            <div class="social-links">
-                ${data.header.social.map(s => `
-                    <a href="${s.link}" target="_blank">
-                        <svg class="icon" viewBox="0 0 24 24"><path d="${s.iconPath}"/></svg>
-                        ${s.name}
+            <div class="header-top">
+                <h1>${data.header.name}</h1>
+                <div class="social-links">
+                    <a href="${resumeUrl}" target="_blank" rel="noopener noreferrer" title="View Resume">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                        Resume
                     </a>
-                `).join('')}
+                    <a href="${emailAddress}" title="Send Email">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+                        Email
+                    </a>
+                    ${filteredSocials.map(s => `
+                        <a href="${s.link}" target="_blank">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="${s.iconPath}"/></svg>
+                            ${s.name}
+                        </a>
+                    `).join('')}
+                </div>
             </div>
+            <p class="tagline">${data.header.tagline}</p>
+            <p>${aboutText}</p>
         `;
         document.getElementById('header-section').innerHTML = headerHTML;
 
-        // 3. Render About
-        const aboutHTML = data.about.map(para => `<p>${para}</p>`).join('');
-        document.getElementById('about-content').innerHTML = aboutHTML;
-
-        // 4. Render Experience
+        // 3. Render Experience
         const experienceHTML = data.experience.map(job => `
             <div class="job-item">
                 <div class="job-header">
@@ -166,7 +176,7 @@
         `).join('');
         document.getElementById('experience-list').innerHTML = experienceHTML;
 
-        // 5. Render Projects
+        // 4. Render Projects
         const projectsHTML = data.projects.map(proj => `
             <a href="${proj.link}" class="project-item">
                 <div class="project-title">
@@ -181,7 +191,7 @@
         `).join('');
         document.getElementById('project-list').innerHTML = projectsHTML;
 
-        // 6. Render Footer
+        // 5. Render Footer
         document.getElementById('footer-text').textContent = data.footer;
     });
 </script>
