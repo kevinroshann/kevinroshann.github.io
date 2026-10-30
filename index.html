@@ -64,16 +64,25 @@
 
         /* Projects (List View) */
         .project-list { display: flex; flex-direction: column; }
-        .project-item { padding: 16px 0; border-bottom: 1px solid #333; transition: transform 0.2s; display: block; }
+        .project-item { padding: 18px 0; border-bottom: 1px solid #333; transition: transform 0.2s; display: block; }
         .project-item:last-child { border-bottom: none; }
         .project-item:hover { transform: translateX(8px); }
         .project-title {
-            font-size: 1.1rem; font-weight: 600; margin-bottom: 4px;
+            font-size: 1.1rem; font-weight: 600; margin-bottom: 6px;
             display: flex; justify-content: space-between; align-items: center;
             color: var(--text-main);
         }
         .project-item:hover .project-title { color: var(--accent); }
-        .tech-stack { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; }
+        .project-bullets {
+            margin-left: 18px;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .project-bullets li {
+            margin-bottom: 4px;
+        }
+        .tech-stack { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
         .tech-tag {
             font-size: 0.75rem; font-family: monospace; color: var(--text-muted);
             background: transparent; padding: 0;
@@ -154,19 +163,64 @@
     <section>
         <h2>What I've Built</h2>
         <div id="project-list" class="project-list">
-            <a href="https://github.com/kevinroshann/uart_streamed_fir_filter" target="_blank" rel="noopener noreferrer" class="project-item">
+            <!-- 6-DOF Robotic Arm RISC-V -->
+            <a href="https://github.com/kevinroshann/RISCV" target="_blank" rel="noopener noreferrer" class="project-item">
                 <div class="project-title">
-                    <span>UART Streamed FIR Filter on IceBreaker FPGA</span>
+                    <span>6-DOF Robotic Arm (RV32I Core)</span>
                     <svg class="icon" style="transform: rotate(-45deg)" viewBox="0 0 24 24"><path d="M14 13v6h-4v-6h-5l7-7 7 7h-5z"/></svg>
                 </div>
-                <p>Implemented a streamed FIR low-pass filter with UART communication, verified both through Cocotb testbenches and on the IceBreaker FPGA. A noisy signal was transmitted via UART using Python and filtered in hardware.</p>
+                <ul class="project-bullets">
+                    <li>Designed a custom RV32I 32-bit RISC-V core in Verilog on the iCEbreaker FPGA, implementing memory-mapped I/O peripherals including UART and PWM servo controllers.</li>
+                    <li>Formulated a cross-compilation toolchain using GNU GCC to build bare-metal C binaries into hex image files loaded into FPGA Block RAM for execution.</li>
+                    <li>Currently working on implementing CORDIC accelerator and MAC units for inverse kinematics on the FPGA itself.</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-tag">Verilog</span>
+                    <span class="tech-tag">RISC-V Assembly</span>
+                    <span class="tech-tag">C</span>
+                    <span class="tech-tag">FPGA</span>
+                </div>
+            </a>
+
+            <!-- FIR Low-Pass Filter -->
+            <a href="https://github.com/kevinroshann/uart_streamed_fir_filter" target="_blank" rel="noopener noreferrer" class="project-item">
+                <div class="project-title">
+                    <span>UART-Streamed 16th-Order FIR Low-Pass Filter</span>
+                    <svg class="icon" style="transform: rotate(-45deg)" viewBox="0 0 24 24"><path d="M14 13v6h-4v-6h-5l7-7 7 7h-5z"/></svg>
+                </div>
+                <ul class="project-bullets">
+                    <li>Modeled and prototyped a 16th-order digital FIR low-pass filter in Python before implementing the architecture from scratch in Verilog targeting the iCEbreaker FPGA.</li>
+                    <li>Developed custom UART TX/RX cores to stream real-time noisy audio sample streams directly to the filter core.</li>
+                    <li>Conducted hardware-in-the-loop verification using Cocotb testbenches and real-time Python spectrum analysis scripts, validating signal attenuation across target cutoff frequencies (2 kHz cutoff, 10 kHz sampling frequency).</li>
+                </ul>
                 <div class="tech-stack">
                     <span class="tech-tag">Verilog</span>
                     <span class="tech-tag">Cocotb</span>
                     <span class="tech-tag">Python</span>
                     <span class="tech-tag">UART</span>
+                    <span class="tech-tag">Lattice iCE40</span>
                 </div>
             </a>
+
+            <!-- Protocol Emulator ASIC Core -->
+            <a href="https://github.com/kevinroshann/protocol_emulator" target="_blank" rel="noopener noreferrer" class="project-item">
+                <div class="project-title">
+                    <span>Programmable IO Protocol Emulator ASIC Core</span>
+                    <svg class="icon" style="transform: rotate(-45deg)" viewBox="0 0 24 24"><path d="M14 13v6h-4v-6h-5l7-7 7 7h-5z"/></svg>
+                </div>
+                <ul class="project-bullets">
+                    <li>Designed and verified a 16-bit programmable Protocol Emulator Core in Verilog using an FSM pipeline, shift register, and dynamic instruction decoding.</li>
+                    <li>Synthesized and deployed custom microcode onto an iCE40 FPGA using ice40 flow to execute bit-banged UART, SPI, and I2C communications.</li>
+                    <li>Currently implementing Ethernet and USB protocols using this processor as part of the Jane Street challenge.</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-tag">Verilog</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">FPGA</span>
+                </div>
+            </a>
+
+            <!-- DTMF Keyboard -->
             <a href="https://github.com/kevinroshann/dtmf" target="_blank" rel="noopener noreferrer" class="project-item">
                 <div class="project-title">
                     <span>DTMF Keyboard</span>
@@ -179,6 +233,8 @@
                     <span class="tech-tag">FPGA</span>
                 </div>
             </a>
+
+            <!-- Maze Solving Bot -->
             <a href="#" class="project-item">
                 <div class="project-title">
                     <span>Maze Solving Bot using FPGA</span>
@@ -189,18 +245,6 @@
                     <span class="tech-tag">Verilog</span>
                     <span class="tech-tag">Cyclone IV FPGA</span>
                     <span class="tech-tag">e-Yantra</span>
-                </div>
-            </a>
-            <a href="https://github.com/kevinroshann/RISCV" target="_blank" rel="noopener noreferrer" class="project-item">
-                <div class="project-title">
-                    <span>32-Bit RISC-V Processor</span>
-                    <svg class="icon" style="transform: rotate(-45deg)" viewBox="0 0 24 24"><path d="M14 13v6h-4v-6h-5l7-7 7 7h-5z"/></svg>
-                </div>
-                <p>Implemented a multicycle, non-pipelined 32-bit RISC-V processor in Verilog. Currently extending the processor with memory-mapped peripherals.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Verilog</span>
-                    <span class="tech-tag">RISC-V</span>
-                    <span class="tech-tag">Computer Architecture</span>
                 </div>
             </a>
         </div>
